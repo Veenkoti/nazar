@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nazara Jewelry - Where Elegance Meets Heritage</title>
+    <title>Nazaara India - Exquisite jewelry for all occasions</title>
     <style>
         * {
             margin: 0;
@@ -12,128 +12,258 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background-color: #fff0e5;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f1eb;
             color: #2c2c2c;
             line-height: 1.6;
         }
 
         /* Header Section */
         .header {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: linear-gradient(135deg, #fff0e5 0%, #f5e6d3 100%);
-            border-bottom: 2px solid #7a5c4b;
-        }
-
-        .brand-name {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: #7a5c4b;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: #2c2c2c;
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-
-        /* Navigation */
-        .navbar {
-            background-color: #7a5c4b;
-            position: relative;
+            background-color: white;
+            padding: 1rem 2rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-item {
-            position: relative;
-            display: inline-block;
-        }
-
-        .nav-link {
-            display: block;
-            padding: 1rem 1.5rem;
-            color: #fff0e5;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-
-        .nav-link:hover {
-            background-color: rgba(255, 240, 229, 0.1);
-            transform: translateY(-2px);
-            border-bottom-color: #fff0e5;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Dropdown Menus */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #fff0e5;
-            min-width: 200px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            border-radius: 0 0 8px 8px;
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
 
-        .nav-item:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .dropdown-link {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            color: #7a5c4b;
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background-color: #8B6F47;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .logo::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid white;
+            border-radius: 2px;
+            position: absolute;
+        }
+
+        .logo::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border: 1px solid white;
+            border-radius: 1px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8B6F47;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #2c2c2c;
             text-decoration: none;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(122, 92, 75, 0.1);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
-        .dropdown-link:hover {
-            background-color: #7a5c4b;
-            color: #fff0e5;
-            padding-left: 2rem;
+        .nav-link:hover {
+            color: #8B6F47;
+        }
+
+        .nav-link.active {
+            color: #8B6F47;
+            border-bottom: 2px solid #8B6F47;
+            padding-bottom: 2px;
+        }
+
+        .cart-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #8B6F47;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cart-icon::after {
+            content: '0';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #d4a574;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
         }
 
         /* Hero Section */
         .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><rect fill="%23d4a574" width="1000" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(45deg, #fff0e5 0%, #f8f0e3 50%, #fff0e5 100%);
+            color: white;
         }
 
-        .hero h2 {
-            font-size: 2.5rem;
-            color: #7a5c4b;
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
             margin-bottom: 1rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .cta-button:hover {
+            background-color: white;
+            color: #8B6F47;
+        }
+
+        /* Sale Banner */
+        .sale-banner {
+            background-color: #f0eae2;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .sale-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .sale-content h2 {
+            font-size: 3rem;
+            color: #8B6F47;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .sale-content p {
             font-size: 1.1rem;
             color: #2c2c2c;
-            max-width: 600px;
-            margin: 0 auto;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .sale-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #8B6F47;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .sale-button:hover {
+            background-color: #6d5435;
+            transform: translateY(-2px);
+        }
+
+        .sale-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .sale-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .sale-ticker {
+            background-color: #f0eae2;
+            padding: 1rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid #d4a574;
+            border-bottom: 1px solid #d4a574;
+        }
+
+        .sale-ticker-content {
+            display: inline-block;
+            animation: scroll 30s linear infinite;
+            font-size: 1.1rem;
+            color: #8B6F47;
+            font-weight: 500;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         /* Gallery Section */
@@ -145,9 +275,10 @@
 
         .gallery h3 {
             text-align: center;
-            font-size: 2.2rem;
-            color: #7a5c4b;
+            font-size: 2.5rem;
+            color: #8B6F47;
             margin-bottom: 3rem;
+            font-weight: 300;
             position: relative;
         }
 
@@ -155,10 +286,9 @@
             content: '';
             display: block;
             width: 80px;
-            height: 3px;
-            background-color: #7a5c4b;
+            height: 2px;
+            background-color: #8B6F47;
             margin: 1rem auto;
-            border-radius: 2px;
         }
 
         .gallery-grid {
@@ -171,14 +301,14 @@
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
             background-color: white;
         }
 
         .gallery-item:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-8px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
 
@@ -190,7 +320,7 @@
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .gallery-overlay {
@@ -198,8 +328,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(122, 92, 75, 0.9));
-            color: #fff0e5;
+            background: linear-gradient(transparent, rgba(139, 111, 71, 0.9));
+            color: white;
             padding: 1.5rem;
             transform: translateY(100%);
             transition: transform 0.4s ease;
@@ -211,7 +341,7 @@
 
         .overlay-title {
             font-size: 1.3rem;
-            font-weight: bold;
+            font-weight: 500;
             margin-bottom: 0.5rem;
         }
 
@@ -220,10 +350,71 @@
             opacity: 0.9;
         }
 
+        /* Follow Us Section */
+        .follow-section {
+            background-color: #f0eae2;
+            padding: 4rem 2rem;
+        }
+
+        .follow-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .follow-section h3 {
+            font-size: 3rem;
+            color: #8B6F47;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .follow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .follow-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .follow-item:hover {
+            transform: scale(1.05);
+        }
+
+        .follow-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .load-more-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 2px solid #8B6F47;
+            color: #8B6F47;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .load-more-btn:hover {
+            background-color: #8B6F47;
+            color: white;
+        }
+
         /* Features Section */
         .features {
             padding: 4rem 2rem;
-            background-color: rgba(122, 92, 75, 0.05);
+            background-color: white;
         }
 
         .features-container {
@@ -233,9 +424,10 @@
         }
 
         .features h3 {
-            font-size: 2.2rem;
-            color: #7a5c4b;
+            font-size: 2.5rem;
+            color: #8B6F47;
             margin-bottom: 3rem;
+            font-weight: 300;
         }
 
         .features-grid {
@@ -245,29 +437,28 @@
         }
 
         .feature-card {
-            background: white;
+            background: #f9f6f2;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .feature-icon {
             font-size: 2.5rem;
-            color: #7a5c4b;
+            color: #8B6F47;
             margin-bottom: 1rem;
         }
 
         .feature-title {
             font-size: 1.3rem;
-            color: #7a5c4b;
+            color: #8B6F47;
             margin-bottom: 1rem;
-            font-weight: bold;
+            font-weight: 500;
         }
 
         .feature-desc {
@@ -277,10 +468,9 @@
 
         /* Footer */
         .footer {
-            background-color: #7a5c4b;
-            color: #fff0e5;
+            background-color: #8B6F47;
+            color: white;
             padding: 3rem 2rem 2rem;
-            margin-top: 4rem;
         }
 
         .footer-content {
@@ -302,6 +492,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0.9;
         }
 
         .footer-links {
@@ -313,59 +504,78 @@
         }
 
         .footer-link {
-            color: #fff0e5;
+            color: white;
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 20px;
             transition: all 0.3s ease;
+            opacity: 0.8;
         }
 
         .footer-link:hover {
-            background-color: rgba(255, 240, 229, 0.1);
-            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.1);
+            opacity: 1;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 240, 229, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding-top: 1.5rem;
             font-size: 0.9rem;
-            opacity: 0.8;
+            opacity: 0.7;
+        }
+
+        /* Chat Button */
+        .chat-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #8B6F47;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .chat-button:hover {
+            background-color: #6d5435;
+            transform: translateY(-2px);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .brand-name {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .tagline {
-                font-size: 1rem;
+            .hero p {
+                font-size: 1.1rem;
             }
 
-            .nav-container {
-                flex-direction: column;
+            .sale-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .nav-item {
-                width: 100%;
-            }
-
-            .dropdown {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                background-color: rgba(255, 240, 229, 0.1);
-                display: none;
-            }
-
-            .nav-item:hover .dropdown {
-                display: block;
-            }
-
-            .hero h2 {
+            .sale-content h2 {
                 font-size: 2rem;
+            }
+
+            .follow-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .gallery-grid {
@@ -386,83 +596,56 @@
         html {
             scroll-behavior: smooth;
         }
-
-        /* Loading Animation for Images */
-        .gallery-item img {
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <header class="header">
-        <h1 class="brand-name">Nazara</h1>
-        <p class="tagline">Where Elegance Meets Heritage</p>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo"></div>
+                <div class="brand-name">Nazaara India</div>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">Welcome</a>
+                <a href="#" class="nav-link">Best Sellers</a>
+                <a href="#" class="nav-link">Promotion</a>
+                <a href="#" class="nav-link">About Us</a>
+                <a href="#" class="nav-link">More</a>
+                <div class="cart-icon">🛒</div>
+            </nav>
+        </div>
     </header>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-item">
-                <a href="#" class="nav-link">Earrings</a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-link">Studs</a>
-                    <a href="#" class="dropdown-link">Jhumkas</a>
-                    <a href="#" class="dropdown-link">Chandbalis</a>
-                </div>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Necklaces</a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-link">Chokers</a>
-                    <a href="#" class="dropdown-link">Long</a>
-                    <a href="#" class="dropdown-link">Layered</a>
-                </div>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Rings</a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Bangles & Bracelets</a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Mangalsutra</a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Anklets</a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Hair Accessories</a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Bridal Sets</a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Minimal</a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Officewear</a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Partywear</a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">Dailywear</a>
-            </div>
+    <!-- Sale Ticker -->
+    <div class="sale-ticker">
+        <div class="sale-ticker-content">
+            Limited Stock Sale • Limited Stock Sale • Limited Stock Sale • Limited Stock Sale • Limited Stock Sale
         </div>
-    </nav>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h2>Exquisite Indian Jewelry Collection</h2>
-        <p>Discover our carefully curated collection of traditional and contemporary jewelry pieces that celebrate the rich heritage of Indian craftsmanship while embracing modern elegance.</p>
+        <div class="hero-content">
+            <h1>Step into Glamour Zone</h1>
+            <p>Exquisite jewelry for all occasions</p>
+            <a href="#" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Sale Banner -->
+    <section class="sale-banner">
+        <div class="sale-container">
+            <div class="sale-content">
+                <h2>Don't Miss Out on Savings</h2>
+                <p>Hurry! Shop our exclusive collection now and grab the best deals before they're gone.</p>
+                <a href="#" class="sale-button">Shop Sale</a>
+            </div>
+            <div class="sale-image">
+                <img src="images/bracelet-display.jpg" alt="Exclusive Jewelry Collection" loading="lazy">
+            </div>
+        </div>
     </section>
 
     <!-- Gallery Section -->
@@ -514,10 +697,32 @@
         </div>
     </section>
 
+    <!-- Follow Us Section -->
+    <section class="follow-section">
+        <div class="follow-container">
+            <h3>Follow Us</h3>
+            <div class="follow-grid">
+                <div class="follow-item">
+                    <img src="images/bracelet-display.jpg" alt="Instagram Post 1" loading="lazy">
+                </div>
+                <div class="follow-item">
+                    <img src="images/earrings.jpg" alt="Instagram Post 2" loading="lazy">
+                </div>
+                <div class="follow-item">
+                    <img src="images/hand-rings.jpg" alt="Instagram Post 3" loading="lazy">
+                </div>
+                <div class="follow-item">
+                    <img src="images/portrait-necklace.jpg" alt="Instagram Post 4" loading="lazy">
+                </div>
+            </div>
+            <a href="#" class="load-more-btn">Load More</a>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section class="features">
         <div class="features-container">
-            <h3>Why Choose Nazara</h3>
+            <h3>Why Choose Nazaara</h3>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">✨</div>
@@ -546,9 +751,9 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-brand">Nazara Jewelry</div>
+            <div class="footer-brand">Nazaara India</div>
             <div class="footer-message">
-                At Nazara, we believe that jewelry is not just an accessory, but a celebration of your unique story. Our collections are inspired by the rich cultural heritage of India, reimagined for the contemporary woman who values both tradition and modernity.
+                At Nazaara, we believe that jewelry is not just an accessory, but a celebration of your unique story. Our collections are inspired by the rich cultural heritage of India, reimagined for the contemporary woman who values both tradition and modernity.
             </div>
             <div class="footer-links">
                 <a href="#" class="footer-link">About Us</a>
@@ -559,9 +764,12 @@
                 <a href="#" class="footer-link">Privacy Policy</a>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Nazara Jewelry. All rights reserved. | Crafted with love in India</p>
+                <p>&copy; 2025 Nazaara India. All rights reserved. | Crafted with love in India</p>
             </div>
         </div>
     </footer>
+
+    <!-- Chat Button -->
+    <button class="chat-button">💬 Let's Chat!</button>
 </body>
 </html>
