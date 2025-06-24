@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nazaara India - Exquisite jewelry for all occasions</title>
+    <title>Nazara Jewelry - Where Elegance Meets Heritage | Exquisite Indian Jewelry</title>
+    <meta name="description" content="Discover exquisite Indian jewelry at Nazara Jewelry. From traditional to contemporary designs, we celebrate the richness of Indian heritage with modern elegance.">
+    <meta name="keywords" content="Indian jewelry, traditional jewelry, earrings, necklaces, bridal jewelry, gold jewelry, silver jewelry">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,20 +17,30 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f1eb;
+            font-family: 'Inter', sans-serif;
+            background-color: #fff0e5;
             color: #2c2c2c;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Header Section */
         .header {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 0.5rem 2rem;
         }
 
         .header-container {
@@ -43,31 +58,32 @@
         }
 
         .logo {
-            width: 40px;
-            height: 40px;
-            background-color: #8B6F47;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #7a5c4b, #a67c6a);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 4px;
+            border-radius: 8px;
             position: relative;
+            box-shadow: 0 4px 15px rgba(122, 92, 75, 0.3);
         }
 
         .logo::before {
             content: '';
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             border: 2px solid white;
-            border-radius: 2px;
+            border-radius: 4px;
             position: absolute;
         }
 
         .logo::after {
             content: '';
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 16px;
             border: 1px solid white;
-            border-radius: 1px;
+            border-radius: 2px;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -75,9 +91,10 @@
         }
 
         .brand-name {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #8B6F47;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #7a5c4b;
             letter-spacing: 1px;
         }
 
@@ -87,36 +104,94 @@
             align-items: center;
         }
 
+        .nav-item {
+            position: relative;
+        }
+
         .nav-link {
             color: #2c2c2c;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
         }
 
         .nav-link:hover {
-            color: #8B6F47;
+            color: #7a5c4b;
         }
 
-        .nav-link.active {
-            color: #8B6F47;
-            border-bottom: 2px solid #8B6F47;
-            padding-bottom: 2px;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #7a5c4b;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #2c2c2c;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-item:hover {
+            background-color: #fff0e5;
+            color: #7a5c4b;
         }
 
         .cart-icon {
-            width: 24px;
-            height: 24px;
-            background-color: #8B6F47;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #7a5c4b, #a67c6a);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 12px;
+            font-size: 16px;
             cursor: pointer;
             position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(122, 92, 75, 0.3);
+        }
+
+        .cart-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(122, 92, 75, 0.4);
         }
 
         .cart-icon::after {
@@ -127,200 +202,170 @@
             background-color: #d4a574;
             color: white;
             border-radius: 50%;
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #7a5c4b;
+            margin: 3px 0;
+            transition: 0.3s;
         }
 
         /* Hero Section */
         .hero {
             position: relative;
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><rect fill="%23d4a574" width="1000" height="600"/></svg>');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('images/bracelet-display.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
+            margin-top: 80px;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             padding: 2rem;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
             font-weight: 300;
             margin-bottom: 1rem;
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: #d4a574;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
             font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem;
             border: 2px solid white;
             color: white;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 1px;
             transition: all 0.3s ease;
             background: transparent;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .cta-button:hover {
             background-color: white;
-            color: #8B6F47;
-        }
-
-        /* Sale Banner */
-        .sale-banner {
-            background-color: #f0eae2;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-        }
-
-        .sale-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .sale-content h2 {
-            font-size: 3rem;
-            color: #8B6F47;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            line-height: 1.2;
-        }
-
-        .sale-content p {
-            font-size: 1.1rem;
-            color: #2c2c2c;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .sale-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #8B6F47;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .sale-button:hover {
-            background-color: #6d5435;
+            color: #7a5c4b;
             transform: translateY(-2px);
-        }
-
-        .sale-image {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        .sale-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        .sale-ticker {
-            background-color: #f0eae2;
-            padding: 1rem 0;
-            overflow: hidden;
-            white-space: nowrap;
-            border-top: 1px solid #d4a574;
-            border-bottom: 1px solid #d4a574;
-        }
-
-        .sale-ticker-content {
-            display: inline-block;
-            animation: scroll 30s linear infinite;
-            font-size: 1.1rem;
-            color: #8B6F47;
-            font-weight: 500;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
         }
 
         /* Gallery Section */
         .gallery {
-            padding: 4rem 2rem;
-            max-width: 1200px;
+            padding: 6rem 2rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .gallery h3 {
             text-align: center;
-            font-size: 2.5rem;
-            color: #8B6F47;
-            margin-bottom: 3rem;
-            font-weight: 300;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #7a5c4b;
+            margin-bottom: 1rem;
+            font-weight: 400;
             position: relative;
         }
 
-        .gallery h3::after {
+        .gallery-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-subtitle::after {
             content: '';
             display: block;
             width: 80px;
             height: 2px;
-            background-color: #8B6F47;
-            margin: 1rem auto;
+            background-color: #7a5c4b;
+            margin: 2rem auto;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
             margin-top: 2rem;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
             background-color: white;
+            cursor: pointer;
         }
 
         .gallery-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
             transition: transform 0.4s ease;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .gallery-overlay {
@@ -328,9 +373,9 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(139, 111, 71, 0.9));
+            background: linear-gradient(transparent, rgba(122, 92, 75, 0.95));
             color: white;
-            padding: 1.5rem;
+            padding: 2rem;
             transform: translateY(100%);
             transition: transform 0.4s ease;
         }
@@ -340,137 +385,104 @@
         }
 
         .overlay-title {
-            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             font-weight: 500;
             margin-bottom: 0.5rem;
         }
 
         .overlay-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             opacity: 0.9;
+            line-height: 1.6;
         }
 
-        /* Follow Us Section */
-        .follow-section {
-            background-color: #f0eae2;
-            padding: 4rem 2rem;
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #fff0e5, #f8f0e8);
         }
 
-        .follow-container {
+        .features-container {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .follow-section h3 {
-            font-size: 3rem;
-            color: #8B6F47;
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-
-        .follow-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .follow-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            aspect-ratio: 1;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .follow-item:hover {
-            transform: scale(1.05);
-        }
-
-        .follow-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .load-more-btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border: 2px solid #8B6F47;
-            color: #8B6F47;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-
-        .load-more-btn:hover {
-            background-color: #8B6F47;
-            color: white;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 4rem 2rem;
-            background-color: white;
-        }
-
-        .features-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
         .features h3 {
-            font-size: 2.5rem;
-            color: #8B6F47;
-            margin-bottom: 3rem;
-            font-weight: 300;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #7a5c4b;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .features-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .feature-card {
-            background: #f9f6f2;
-            padding: 2rem;
-            border-radius: 8px;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #7a5c4b, #a67c6a);
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            color: #8B6F47;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
         }
 
         .feature-title {
-            font-size: 1.3rem;
-            color: #8B6F47;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #7a5c4b;
             margin-bottom: 1rem;
             font-weight: 500;
         }
 
         .feature-desc {
-            color: #2c2c2c;
-            line-height: 1.6;
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         /* Footer */
         .footer {
-            background-color: #8B6F47;
+            background: linear-gradient(135deg, #7a5c4b, #6d4f3e);
             color: white;
-            padding: 3rem 2rem 2rem;
+            padding: 4rem 2rem 2rem;
         }
 
         .footer-content {
@@ -480,46 +492,60 @@
         }
 
         .footer-brand {
-            font-size: 2rem;
-            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
             margin-bottom: 1rem;
+            color: #d4a574;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #d4a574;
         }
 
         .footer-message {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            font-style: italic;
-            max-width: 600px;
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             opacity: 0.9;
+            line-height: 1.7;
         }
 
         .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .footer-link {
             color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            padding: 0.75rem 1rem;
+            border-radius: 25px;
             transition: all 0.3s ease;
             opacity: 0.8;
+            font-size: 0.9rem;
         }
 
         .footer-link:hover {
             background-color: rgba(255, 255, 255, 0.1);
             opacity: 1;
+            transform: translateY(-2px);
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1.5rem;
+            padding-top: 2rem;
             font-size: 0.9rem;
             opacity: 0.7;
         }
@@ -529,57 +555,57 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background-color: #8B6F47;
+            background: linear-gradient(135deg, #7a5c4b, #a67c6a);
             color: white;
             border: none;
             border-radius: 50px;
             padding: 1rem 1.5rem;
             font-size: 1rem;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(122, 92, 75, 0.4);
             transition: all 0.3s ease;
             z-index: 1000;
+            font-weight: 500;
         }
 
         .chat-button:hover {
-            background-color: #6d5435;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(122, 92, 75, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
+            .nav-menu {
+                display: none;
             }
 
-            .nav-menu {
-                gap: 1rem;
+            .mobile-menu-toggle {
+                display: flex;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
             .hero p {
-                font-size: 1.1rem;
-            }
-
-            .sale-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .sale-content h2 {
-                font-size: 2rem;
-            }
-
-            .follow-grid {
-                grid-template-columns: repeat(2, 1fr);
+                font-size: 1rem;
             }
 
             .gallery-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .features-grid {
@@ -587,8 +613,34 @@
             }
 
             .footer-links {
-                flex-direction: column;
-                gap: 1rem;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header {
+                padding: 1rem;
+            }
+
+            .brand-name {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 0.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features h3, .gallery h3 {
+                font-size: 2.2rem;
             }
         }
 
@@ -596,153 +648,159 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .loading:nth-child(1) { animation-delay: 0.1s; }
+        .loading:nth-child(2) { animation-delay: 0.2s; }
+        .loading:nth-child(3) { animation-delay: 0.3s; }
+        .loading:nth-child(4) { animation-delay: 0.4s; }
+        .loading:nth-child(5) { animation-delay: 0.5s; }
+        .loading:nth-child(6) { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="header-container">
             <div class="logo-section">
                 <div class="logo"></div>
-                <div class="brand-name">Nazaara India</div>
+                <div class="brand-name">Nazara Jewelry</div>
             </div>
             <nav class="nav-menu">
-                <a href="#" class="nav-link active">Home</a>
-                <a href="#" class="nav-link">Welcome</a>
-                <a href="#" class="nav-link">Best Sellers</a>
-                <a href="#" class="nav-link">Promotion</a>
-                <a href="#" class="nav-link">About Us</a>
-                <a href="#" class="nav-link">More</a>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Earrings</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-item">Studs</a>
+                        <a href="#" class="dropdown-item">Jhumkas</a>
+                        <a href="#" class="dropdown-item">Chandbalis</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Necklaces</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-item">Chokers</a>
+                        <a href="#" class="dropdown-item">Long</a>
+                        <a href="#" class="dropdown-item">Layered</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Rings</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Bangles & Bracelets</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Bridal Sets</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Collections</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-item">Minimal</a>
+                        <a href="#" class="dropdown-item">Officewear</a>
+                        <a href="#" class="dropdown-item">Partywear</a>
+                        <a href="#" class="dropdown-item">Dailywear</a>
+                    </div>
+                </div>
                 <div class="cart-icon">🛒</div>
             </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
-
-    <!-- Sale Ticker -->
-    <div class="sale-ticker">
-        <div class="sale-ticker-content">
-            Limited Stock Sale • Limited Stock Sale • Limited Stock Sale • Limited Stock Sale • Limited Stock Sale
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Step into Glamour Zone</h1>
-            <p>Exquisite jewelry for all occasions</p>
-            <a href="#" class="cta-button">Shop Now</a>
-        </div>
-    </section>
-
-    <!-- Sale Banner -->
-    <section class="sale-banner">
-        <div class="sale-container">
-            <div class="sale-content">
-                <h2>Don't Miss Out on Savings</h2>
-                <p>Hurry! Shop our exclusive collection now and grab the best deals before they're gone.</p>
-                <a href="#" class="sale-button">Shop Sale</a>
-            </div>
-            <div class="sale-image">
-                <img src="images/bracelet-display.jpg" alt="Exclusive Jewelry Collection" loading="lazy">
-            </div>
+            <h1>Exquisite Indian Jewelry Collection</h1>
+            <div class="hero-subtitle">Where Elegance Meets Heritage</div>
+            <p>Discover jewelry that celebrates the richness of Indian heritage with a modern touch. Each piece is carefully crafted to embody timeless beauty and contemporary style.</p>
+            <a href="#gallery" class="cta-button">Explore Collection</a>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery">
+    <section class="gallery" id="gallery">
         <h3>Featured Collections</h3>
+        <div class="gallery-subtitle">Handpicked designs that showcase the perfect blend of traditional craftsmanship and modern aesthetics</div>
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="images/bracelet-display.jpg" alt="Elegant Bracelet Collection" loading="lazy">
+            <div class="gallery-item loading">
+                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Elegant Bracelets" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="overlay-title">Elegant Bracelets</div>
-                    <div class="overlay-desc">Handcrafted bracelets that blend tradition with contemporary style</div>
+                    <div class="overlay-desc">Handcrafted bracelets that blend tradition with contemporary style, perfect for every occasion</div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/earrings.jpg" alt="Traditional Earrings Collection" loading="lazy">
+            <div class="gallery-item loading">
+                <img src="https://images.unsplash.com/photo-1583595683354-7c1b6aad8c69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Traditional Earrings" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="overlay-title">Traditional Earrings</div>
-                    <div class="overlay-desc">From delicate studs to magnificent chandbalis, find your perfect pair</div>
+                    <div class="overlay-desc">From delicate studs to magnificent chandbalis, find your perfect pair to complement any outfit</div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/hand-rings.jpg" alt="Exquisite Ring Collection" loading="lazy">
+            <div class="gallery-item loading">
+                <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Exquisite Rings" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="overlay-title">Exquisite Rings</div>
-                    <div class="overlay-desc">Statement rings that speak of elegance and sophistication</div>
+                    <div class="overlay-desc">Statement rings that speak of elegance and sophistication, crafted with precision</div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/shadow-pose.jpg" alt="Fashion Jewelry Collection" loading="lazy">
-                <div class="gallery-overlay">
-                    <div class="overlay-title">Fashion Forward</div>
-                    <div class="overlay-desc">Contemporary designs for the modern Indian woman</div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/portrait-necklace.jpg" alt="Portrait Necklace Collection" loading="lazy">
+            <div class="gallery-item loading">
+                <img src="https://images.unsplash.com/photo-1588444650700-6a4b8c7e8f77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Statement Necklaces" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="overlay-title">Statement Necklaces</div>
-                    <div class="overlay-desc">Bold and beautiful necklaces for special occasions</div>
+                    <div class="overlay-desc">Bold and beautiful necklaces for special occasions, designed to make you shine</div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/chain-book.jpg" alt="Classic Chain Collection" loading="lazy">
+            <div class="gallery-item loading">
+                <img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Bridal Collection" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Bridal Collection</div>
+                    <div class="overlay-desc">Exquisite bridal sets that celebrate your special day with unmatched elegance</div>
+                </div>
+            </div>
+            <div class="gallery-item loading">
+                <img src="https://images.unsplash.com/photo-1588185845473-244c05b9f9e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Classic Chains" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="overlay-title">Classic Chains</div>
-                    <div class="overlay-desc">Timeless chain designs that never go out of style</div>
+                    <div class="overlay-desc">Timeless chain designs that never go out of style, perfect for layering</div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Follow Us Section -->
-    <section class="follow-section">
-        <div class="follow-container">
-            <h3>Follow Us</h3>
-            <div class="follow-grid">
-                <div class="follow-item">
-                    <img src="images/bracelet-display.jpg" alt="Instagram Post 1" loading="lazy">
-                </div>
-                <div class="follow-item">
-                    <img src="images/earrings.jpg" alt="Instagram Post 2" loading="lazy">
-                </div>
-                <div class="follow-item">
-                    <img src="images/hand-rings.jpg" alt="Instagram Post 3" loading="lazy">
-                </div>
-                <div class="follow-item">
-                    <img src="images/portrait-necklace.jpg" alt="Instagram Post 4" loading="lazy">
-                </div>
-            </div>
-            <a href="#" class="load-more-btn">Load More</a>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features">
         <div class="features-container">
-            <h3>Why Choose Nazaara</h3>
+            <h3>Why Choose Nazara</h3>
+            <div class="features-subtitle">Experience the difference of authentic Indian craftsmanship combined with modern excellence</div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">✨</div>
                     <div class="feature-title">Authentic Craftsmanship</div>
-                    <div class="feature-desc">Each piece is meticulously crafted by skilled artisans who have inherited the art through generations</div>
+                    <div class="feature-desc">Each piece is meticulously crafted by skilled artisans who have inherited the art through generations, ensuring every detail reflects traditional excellence.</div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💎</div>
                     <div class="feature-title">Premium Quality</div>
-                    <div class="feature-desc">We use only the finest materials and gemstones to ensure lasting beauty and durability</div>
+                    <div class="feature-desc">We use only the finest materials and gemstones to ensure lasting beauty and durability. Every piece undergoes rigorous quality checks.</div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🚚</div>
                     <div class="feature-title">Secure Delivery</div>
-                    <div class="feature-desc">Your precious jewelry is delivered safely with full insurance and tracking</div>
+                    <div class="feature-desc">Your precious jewelry is delivered safely with full insurance coverage and real-time tracking for complete peace of mind.</div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔄</div>
                     <div class="feature-title">Easy Returns</div>
-                    <div class="feature-desc">30-day hassle-free return policy to ensure your complete satisfaction</div>
+                    <div class="feature-desc">30-day hassle-free return policy with free exchanges to ensure your complete satisfaction with every purchase.</div>
                 </div>
             </div>
         </div>
@@ -751,25 +809,9 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-brand">Nazaara India</div>
+            <div class="footer-brand">Nazara Jewelry</div>
+            <div class="footer-tagline">Where Elegance Meets Heritage</div>
             <div class="footer-message">
-                At Nazaara, we believe that jewelry is not just an accessory, but a celebration of your unique story. Our collections are inspired by the rich cultural heritage of India, reimagined for the contemporary woman who values both tradition and modernity.
+                At Nazara, we believe that jewelry is not just an accessory, but a celebration of your unique story. Our collections are inspired by the rich cultural heritage of India, reimagined for the contemporary woman who values both tradition and modernity. Each piece tells a story of craftsmanship, elegance, and timeless beauty.
             </div>
-            <div class="footer-links">
-                <a href="#" class="footer-link">About Us</a>
-                <a href="#" class="footer-link">Contact</a>
-                <a href="#" class="footer-link">Size Guide</a>
-                <a href="#" class="footer-link">Care Instructions</a>
-                <a href="#" class="footer-link">Shipping Info</a>
-                <a href="#" class="footer-link">Privacy Policy</a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Nazaara India. All rights reserved. | Crafted with love in India</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Chat Button -->
-    <button class="chat-button">💬 Let's Chat!</button>
-</body>
-</html>
+            <div class="
