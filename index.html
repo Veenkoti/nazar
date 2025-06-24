@@ -1,28 +1,567 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nazara Jewelry</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazara Jewelry - Where Elegance Meets Heritage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #fff0e5;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #fff0e5 0%, #f5e6d3 100%);
+            border-bottom: 2px solid #7a5c4b;
+        }
+
+        .brand-name {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #7a5c4b;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #2c2c2c;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #7a5c4b;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #fff0e5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 240, 229, 0.1);
+            transform: translateY(-2px);
+            border-bottom-color: #fff0e5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Dropdown Menus */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff0e5;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            border-radius: 0 0 8px 8px;
+            z-index: 1000;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: #7a5c4b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(122, 92, 75, 0.1);
+        }
+
+        .dropdown-link:hover {
+            background-color: #7a5c4b;
+            color: #fff0e5;
+            padding-left: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(45deg, #fff0e5 0%, #f8f0e3 50%, #fff0e5 100%);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: #7a5c4b;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #2c2c2c;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery h3 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #7a5c4b;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .gallery h3::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #7a5c4b;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            background-color: white;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(122, 92, 75, 0.9));
+            color: #fff0e5;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .overlay-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .overlay-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background-color: rgba(122, 92, 75, 0.05);
+        }
+
+        .features-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .features h3 {
+            font-size: 2.2rem;
+            color: #7a5c4b;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #7a5c4b;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            color: #7a5c4b;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .feature-desc {
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #7a5c4b;
+            color: #fff0e5;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-message {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            color: #fff0e5;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            background-color: rgba(255, 240, 229, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 240, 229, 0.2);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .brand-name {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: rgba(255, 240, 229, 0.1);
+                display: none;
+            }
+
+            .nav-item:hover .dropdown {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation for Images */
+        .gallery-item img {
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Nazara Jewelry</h1>
-        <p>Where Elegance Meets Heritage</p>
+    <!-- Header Section -->
+    <header class="header">
+        <h1 class="brand-name">Nazara</h1>
+        <p class="tagline">Where Elegance Meets Heritage</p>
     </header>
-    <main>
-        <section class="gallery">
-            <img src="images/bracelet-display.jpg" alt="Bracelet on display">
-            <img src="images/earrings.jpg" alt="Gold earrings">
-            <img src="images/hand-rings.jpg" alt="Rings on hand">
-            <img src="images/shadow-pose.jpg" alt="Model shadow pose with jewelry">
-            <img src="images/portrait-necklace.jpg" alt="Portrait with necklace">
-            <img src="images/chain-book.jpg" alt="Chain on book">
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Nazara. Crafted with passion.</p>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Earrings</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-link">Studs</a>
+                    <a href="#" class="dropdown-link">Jhumkas</a>
+                    <a href="#" class="dropdown-link">Chandbalis</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Necklaces</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-link">Chokers</a>
+                    <a href="#" class="dropdown-link">Long</a>
+                    <a href="#" class="dropdown-link">Layered</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Rings</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Bangles & Bracelets</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Mangalsutra</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Anklets</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Hair Accessories</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Bridal Sets</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Minimal</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Officewear</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Partywear</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Dailywear</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Exquisite Indian Jewelry Collection</h2>
+        <p>Discover our carefully curated collection of traditional and contemporary jewelry pieces that celebrate the rich heritage of Indian craftsmanship while embracing modern elegance.</p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <h3>Featured Collections</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/bracelet-display.jpg" alt="Elegant Bracelet Collection" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Elegant Bracelets</div>
+                    <div class="overlay-desc">Handcrafted bracelets that blend tradition with contemporary style</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/earrings.jpg" alt="Traditional Earrings Collection" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Traditional Earrings</div>
+                    <div class="overlay-desc">From delicate studs to magnificent chandbalis, find your perfect pair</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/hand-rings.jpg" alt="Exquisite Ring Collection" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Exquisite Rings</div>
+                    <div class="overlay-desc">Statement rings that speak of elegance and sophistication</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/shadow-pose.jpg" alt="Fashion Jewelry Collection" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Fashion Forward</div>
+                    <div class="overlay-desc">Contemporary designs for the modern Indian woman</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/portrait-necklace.jpg" alt="Portrait Necklace Collection" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Statement Necklaces</div>
+                    <div class="overlay-desc">Bold and beautiful necklaces for special occasions</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/chain-book.jpg" alt="Classic Chain Collection" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Classic Chains</div>
+                    <div class="overlay-desc">Timeless chain designs that never go out of style</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h3>Why Choose Nazara</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <div class="feature-title">Authentic Craftsmanship</div>
+                    <div class="feature-desc">Each piece is meticulously crafted by skilled artisans who have inherited the art through generations</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <div class="feature-title">Premium Quality</div>
+                    <div class="feature-desc">We use only the finest materials and gemstones to ensure lasting beauty and durability</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <div class="feature-title">Secure Delivery</div>
+                    <div class="feature-desc">Your precious jewelry is delivered safely with full insurance and tracking</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-title">Easy Returns</div>
+                    <div class="feature-desc">30-day hassle-free return policy to ensure your complete satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">Nazara Jewelry</div>
+            <div class="footer-message">
+                At Nazara, we believe that jewelry is not just an accessory, but a celebration of your unique story. Our collections are inspired by the rich cultural heritage of India, reimagined for the contemporary woman who values both tradition and modernity.
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">About Us</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Size Guide</a>
+                <a href="#" class="footer-link">Care Instructions</a>
+                <a href="#" class="footer-link">Shipping Info</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nazara Jewelry. All rights reserved. | Crafted with love in India</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
