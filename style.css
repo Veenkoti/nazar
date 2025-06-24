@@ -1,0 +1,95 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+body {
+    background: #f8f0e6;
+    color: #2c1b0f;
+}
+header {
+    background: #f0e6d2;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+}
+header .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+header nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #2c1b0f;
+    font-weight: 500;
+}
+.hero {
+    background: url('https://images.unsplash.com/photo-1590080876615-826beee09f85?fit=crop&w=1600&q=80') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.cta {
+    background: #8c6f3e;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.top-picks, .promo, .about, .follow-us {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.product-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+footer {
+    background: #d8c6b3;
+    padding: 2rem;
+    text-align: center;
+}
+footer form {
+    margin: 1rem 0;
+}
+footer input {
+    padding: 0.5rem;
+    width: 200px;
+    margin-right: 1rem;
+}
+footer button {
+    padding: 0.5rem 1rem;
+    background: #8c6f3e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+footer .links {
+    margin-top: 1rem;
+}
+footer .links a {
+    margin: 0 0.5rem;
+    color: #2c1b0f;
+    text-decoration: none;
+}
